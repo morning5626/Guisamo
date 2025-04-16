@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> 기사모 </title>
+    <meta charset="utf-8">
+
+    <style>
+        /* 공통 */
+        *{
+            background-color: antiquewhite;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li{list-style-type: none;}
+
+        /*wrap*/
+        #wrap{
+            width: 1100px;
+            margin: 0 auto;
+            /*border: solid 1px 
+            ;*/
+        }
+
+        /*header*/
+        header{
+            height: 166px;
+        }
+
+        /*box*/
+        .box{
+            width:1100px;
+            margin:0 outo;
+        }
+
+        /*logo*/
+        #logo{
+            float: left;
+            margin: 20px 0 0 20px;
+            font-size: 30px;
+            font-weight: bold;
+            font-family: '궁서';
+            text-shadow: 3px 3px 5px #666666;
+        }
+        /*menu 카페홈*/
+        #menu{
+            float:right;
+            text-align:right;
+            margin-right:20px;
+        }
+
+        #menu li{
+            display: inline-block;
+        }
+
+        #menu a:link, #menu a:visited{
+            color: black;
+            text-decoration: none;
+        }
+        #menu a:hover{
+            text-decoration: underline;
+        }
+
+        #top_menu li{
+            margin: 10px 0 0 20px;
+        }
+
+        #main_menu li{ /*전체 글 보기*/
+            margin: 50px 30px 20px 20px;
+            font-family: "맑은고딕";
+            font-size: 20px;
+            font-weight: bold;
+
+        }
+
+        /*메인 이미지 main image*/
+        #main_image{
+            height: 312px;
+            background-repeat: no-repeat;
+            background-position: top center;
+            text-align: center;
+        }
+
+        /*aside*/
+        aside{
+            width:220px;
+            height: 400px;
+            float: left;
+            margin: 70px 0 0 20px;
+            /*border: solid 1px crimson;*/
+        }
+
+        aside .title1{
+            padding:12px;
+            background-color: crimson;
+            color: white;
+            font-size: 20px;
+        }
+
+        aside .comment{
+            padding:20px 10px;
+            line-height: 150%;
+        }
+
+        aside .search input {
+            width: 160px;
+            height: 32px;
+            border: dotted 1px gray;
+            vertical-align: top;
+        }
+
+        aside .search button {
+            margin-left: 5px;
+            padding: 6px 10px;
+            border: solid 1px black;
+            border-radius: 10%;
+            background-color: crimson;
+            color: white;
+            font-weight: bold;
+        }
+
+        aside .title2{
+            margin-top: 20px;
+            padding: 12px;
+            border-top: solid 2px gray;
+            border-bottom: solid 1px gray;
+            font-size: 15px;
+        }
+
+        aside .list li{
+            margin-top: 10px;
+            margin-left: 10px;
+            line-height: 110%;
+        }
+        aside .list li:hover {
+            text-decoration: underline;
+        }
+
+        /* main: main1+main*/
+        #main {
+            width: 1000px;
+            height: 700px;
+            margin: 70px 0;
+        }
+
+        #main1{ /*영상*/
+            width: 700px;
+            float: left;
+            margin: 70px 0 30px 20px;
+        }
+
+        #main1 .title2{ /*전체 글 보기*/
+            padding-bottom: 8px;
+            border-bottom: solid 2px gray;
+            font-weight:bold;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        #main1 .items{
+            position: relative;
+            height: 30px;
+            margin-top: 10px;
+            padding-bottom: 10px;
+            list-style-type: none;
+            border-bottom: solid 1px gray;
+        }
+        #main1 .subject:hover{
+            text-decoration: underline;
+        }
+        #main1 .items .subject {
+            position:absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #main1 .items .date{
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        #main1 .title2{
+            padding-bottom: 8px;
+            border-bottom: solid 2px gray;
+            font-weight:bold;
+        }
+
+        /*main2 기니자랑*/
+    #main2 {
+        width: 700px;
+        margin-left: 260px;
+        margin-bottom: 100px;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px; /* 간격 */
+    }
+
+    #main2 .title1 {
+        grid-column: 1 / -1;
+        padding-bottom: 8px;
+        border-bottom: solid 2px gray;
+    }
+
+    #main2 .item1 {
+        list-style: none;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #main2 .item1 img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    #main2 .item1 .subject {
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    #main2 .item1 .date {
+        margin-top: 5px;
+        color: green;
+    }
+
+        /*footer*/
+        footer{
+            height: 260px;
+            color: black;
+            clear: both;
+        }
+
+        #bottom_menu ul{
+
+            border-top: solid 2px black;
+            padding: 20px 0 0 100px;
+            font-weight: bold;
+            padding-top: 30px;
+            margin-top: 50;
+        }
+
+        #bottom_menu li{
+            display: inline;
+            margin-right: 30px;
+        }
+
+        #bottom_menu a:link, a:visited { /*기사모소개*/
+            color: black;
+            text-decoration: none;
+        }
+
+        #bottom_menu a:hover{
+            color: crimson;
+            text-decoration: underline;
+        }
+
+        footer .items{
+            float:left;
+            margin: 40px 0 0 100px;
+        }
+
+        footer .items h3{ /*문의전화*/
+            color: crimson;
+        }
+
+        footer .items ul{
+            margin-top: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div class="box">
+                <div id="logo">
+                    <h4>♥기니피그를 사랑하는 사람들의 모임♥</h4>
+                 </div> <!--logo-->
+                <nav id="menu">
+                    <ul id="top_menu">
+                        <li><a href="#"> 카페홈 </a></li>
+                        <li><a href="#"> 이웃 </a></li>
+                        <li><a href="#"> 새글 </a></li>
+                        <li><a href="#"> 채팅 </a></li>
+                        <li><a href="#"> 내정보 </a></li>
+                    </ul>
+                    <ul id="main_menu">
+                        <li><a href="#"> 전체 글 보기 </a></li>
+                        <li><a href="https://www.google.com/search?q=guinea+pig&sca_esv=585632222&tbm=isch&sxsrf=AM9HkKn9kf2wEhX5ZqjtnNJLyPUtJwrzKw:1701098049689&source=lnms&sa=X&ved=2ahUKEwjrg-uHvOSCAxW4bvUHHRx9DO8Q_AUoAXoECAMQAw&biw=851&bih=900&dpr=1.5"> 이미지모아보기 </a></li>
+                        <li><a href="https://www.youtube.com/results?search_query=%EA%B8%B0%EB%8B%88%ED%94%BC%EA%B7%B8"> 동영상모아보기 </a></li>
+                        <li><a href="#"> 인기글 </a></li>
+                        <li><a href="#"> 이벤트 </a></li>
+                        <li><a href="https://www.jjal.today/data/file/gallery/1028612757_QB9Yi3fS_32100a9cf4d9923b20e20f057062713bbb8e35ec.png"> 공지 </a></li>
+                        <li><a href="https://youtu.be/EgLe4T5P3_k?si=zGHqrmKdil-9SifL"> 누르지마시오 </a></li>
+
+                    </ul>
+                </nav> <!--nav 마감-->
+            </div> <!--box 마감-->
+        </header>
+        <div id="main_image">
+            <a href="#"> <img src="https://i.namu.wiki/i/BtyFoNFHn1GqmP2GKcaqxpt6Gel_gqHhpKp1a_u02gdmOSyQSnh6pVhg8SRNnWzTTBzrLesJqs1UHg_hvoEccA.webp"> </a>
+        </div> <!--main_image-->
+
+        <aside>
+            <h2 class="title1"> 기.사.모. </h2>
+            <p class="comment"> 기니피그 정보 공유, 분양, 사랑</p>
+            <div class="search">
+                <input type="text" name="search">
+                <button> 검색 </button>
+            </div>
+            <h2 class="title2">★ 즐겨찾는 게시판</h2>
+            <ul class="list">
+                <li> 전체 글 보기 </li>
+                <li> 인기글 </li>
+                <li> 카페지식활동 </li>
+            </ul>
+            <h2 class="title2"> 방가방가 준회원 </h2>
+                <ul class="list">
+                    <li> 가입인사 (필수) </li>
+                </ul>
+                <h2 class="title2"> 이미지와 동영상 </h2>
+                <ul class="list">
+                    <li> 기니피그 사진 </li>
+                    <li> 기니주택/용품들 </li>
+                    <li> 기니피그 동영상 </li>
+                </ul>
+            <h2 class="title2"> 기니이야기와 질문방 </h2>
+                <ul class="list">
+                    <li> Q&A </li>
+                    <li> 암수, 품종 구별요청 </li>
+                    <li> 추모방 </li>
+                </ul>
+            <h2 class="title2"> 육아/수다방 </h2>
+                <ul class="list">
+                    <li> 자유게시판 </li>
+                    <li> 출산/성장일기 </li>
+                    <li> 기니피그 자료 </li>
+                </ul>
+            <h2 class="title2"> 분양, 벼룩시장 </h2>
+                <ul class="list">
+                    <li> 분양/벼룩 </li>
+                    <li> 후기 게시판 </li>
+                </ul>
+            <h2 class="title2"> 신고/건의방 </h2>
+                <ul class="list">
+                    <li> 신고/건의/스텝신청 </li>
+                    <li> 등업 신청해요 </li>
+                </ul>
+            </aside><!--aside 마감-->
+
+        <main>
+                <div id="main1">
+                   <iframe width="700" height="393.75" src="https://www.youtube.com/embed/84vDwx_7IlY?si=oMwfJO7sLO6efcc_&amp;start=15" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+                    <h3 class="title2"> 전체 글 보기 </h3>
+                    <ul class="latest">
+                        <li class='items'>
+                            <div class="subject"> 햄스터일까요 토끼일까요 돼지일까요? </div>
+                            <div class="date"> 2023-12-25 </div>
+                        </li>
+                        <li class='items'>
+                            <div class="subject"> 이름 랩햄스터라고 지었어요! </div>
+                            <div class="date"> 2023-12-01 </div>
+                        </li>
+                        <li class='items'>
+                            <div class="subject"> 기니피그 군단ㅋㅋ </div>
+                            <div class="date"> 2023-11-30 </div>
+                        </li>
+                        <li class='items'>
+                            <div class="subject"> 기니가 아가를 낳았어요 어떡하죠?ㅠㅠ </div>
+                            <div class="date"> 2023-11-27 </div>
+                        </li>
+                        <li class='items'>
+                            <div class="subject"> 왜케 푸짐한거죠? </div>
+                            <div class="date"> 2023-11-11 </div>
+                        </li>
+                        <li class='items'>
+                            <div class="subject"> 복실복실한 아가 </div>
+                            <div class="date"> 2023-11-02 </div>
+                        </li>
+                        <li class='items'>
+                            <div class="subject"> 마치 소금빵같이 생겼네요. </div>
+                            <div class="date"> 2023-10-19 </div>
+                        </li>
+                    </ul>
+                </div><!--main1마감-->
+
+                <div id="main2">
+                    <h3 class='title1'> 기니자랑 </h3>
+                    <ul class='item1'>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Two_adult_Guinea_Pigs_%28Cavia_porcellus%29.jpg"> </li>
+                        <li class="subject"> 정말 귀엽죠? </li>
+                        <li class='date'> 2023-12-25</li>
+                    </ul>
+                    <ul class='item1'>
+                        <li><img src="https://www.chosun.com/resizer/v2/B4EOOZ5ANYNA23JLI6EDKH4XSQ.jpg?auth=906bfd77c6e3d4cd5574fc57763148658545e7b568be5eb6ae310884a20b145d&width=464"> </li>
+                        <li class="subject"> 킁킁 </li>
+                        <li class='date'> 2023-12-09</li>
+                    </ul>
+                    <ul class='item1'>
+                        <li><img src="https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/823/5a6ff802ac541b3bc6d19d6b59fe3fe5_res.jpeg"> </li>
+                        <li class="subject"> 쓰담티비 </li>
+                        <li class='date'> 2023-11-28</li>
+                    </ul>
+                    <ul class='item1'>
+                        <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvmuKXlIfeDojL8DT6_IkgGJBWmEgFifA0Kw&s"> </li>
+                        <li class="subject"> 저희 기니 증명사진 찍었어요ㅎㅎ </li>
+                        <li class='date'> 2023-10-11</li>
+                    </ul>
+                    <ul class='item1'>
+                        <li><img src="https://images.unsplash.com/photo-1658938822483-f9389eb6fcea?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"> </li>
+                        <li class="subject"> 아깅이 </li>
+                        <li class='date'> 2023-09-14</li>
+                    </ul>
+                    <ul class='item1'>
+                        <li><img src="https://i.ytimg.com/vi/4SD0dbF3Zr8/sddefault.jpg"> </li>
+                        <li class="subject"> 아니 기니피그가 원래 이렇게 커요????? </li>
+                        <li class='date'> 2023-09-06</li>
+                    </ul>
+                    <ul class='item1'>
+                        <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhT4Otp8uFFJM1hWXOZcrMI3s7l6EJuYu8GA&s"> </li>
+                        <li class="subject"> 풀뜯어먹자 </li>
+                        <li class='date'> 2023-09-06</li>
+                    </ul>
+                    
+                    <ul class='item1'>
+                        <li><img src="https://i.pinimg.com/236x/6b/e4/a4/6be4a462f55bcee98702b58a200e66c8.jpg"> </li>
+                        <li class="subject"> 여기 강아지사진 올려도 되나요?? </li>
+                        <li class='date'> 2023-09-06</li>
+                    </ul>
+                    <ul class='item1'>
+                        <li><img src="https://preview.free3d.com/img/2013/11/1688663289912886330/ybc2mirf.jpg"> </li>
+                        <li class="subject"> 3D기니. </li>
+                        <li class='date'> 2023-09-01</li>
+                    </ul>
+                    
+                </div><!--main2마감-->
+            </section><!--section 마감-->
+        </main><!--main 마감-->
+
+        <footer>
+            <div class="box">
+                <nav id="bottom_menu">
+                    <ul>
+                        <li><a href="#">기사모 소개</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">저작권 정보</a></li>
+                        <li><a href="#">이용안내</a></li>
+                    </ul>
+                </nav>
+
+                <div class="items">
+                    <h3> 문의 전화 </h3>
+                    <ul>
+                        <li class="phone"> 010-1234-5678 </li>
+                        <li> 홈페이지 서버 점검: 매일 04:09~04:19 </li>
+                    </ul>
+                </div>
+
+                <div class="items">
+                    <h3> 기사모 정기모임 고정장소 </h3>
+                    <ul>
+                        <li> 주소: 경북 울릉군 독도이사부길 55  </li>
+                        <li> 전화: 486-2229 </li>
+                        <li> 팩스: 486-2229</li>
+                    </ul>
+                </div>
+
+                <div class="items">
+                    <h3> 후원 정보 </h3>
+                    <ul>
+                        <li> 카카오뱅크 3333-2319-13997 </li>
+                        <li> 입금자명: 이예은 </li>
+                    </ul>
+                </div>
+
+            </div><!--footer box-->
+        </footer> <!--footer 마감-->
+    </div> <!--wrap 마감-->
+</body>
+</html>
